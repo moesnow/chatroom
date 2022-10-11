@@ -66,7 +66,7 @@ void connectServer(const char *ip, unsigned short port) {
 
 int main(int argc, char *argv[]) {
     if (argc < 3) {
-        printf("用法：%s serverip serverport\n", argv[0]);
+        printf("usage：%s <ip> <port>\n", argv[0]);
         return -1;
     }
     connectServer(argv[1], atoi(argv[2]));
