@@ -1,9 +1,14 @@
-all : server client
+CC = gcc
+CFLAGS = -Wall -Werror
+TARGETS = server client
 
-server : server.c
-	gcc server.c -o server
-client : client.c
-	gcc client.c -o client
+.PHONY: all clean
 
-clean :
-	rm server client
+all: $(TARGETS)
+
+$(TARGETS): % : %.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+clean:
+	rm -f $(TARGETS)
+
